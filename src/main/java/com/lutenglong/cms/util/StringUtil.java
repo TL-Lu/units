@@ -11,15 +11,15 @@ import java.util.regex.Pattern;
  */
 public class StringUtil {
 	/**
-	 * 获取所有的大写字符以及数字
+	 * 获取所有的大写字符以及数字，放到数组里
 	 */
 	static char charArray[] = new char[36];
 	static {
 		for (int i = 0; i < 10; i++) {
-			charArray[i]=(char) ('0'+i);
+			charArray[i]=(char) ('0'+i);					//添加数字到数组中	
 		}
 		for (int i = 0; i < 26; i++) {
-			charArray[i+10]=(char) ('A'+i);
+			charArray[i+10]=(char) ('A'+i);			//添加大写字母到数组中
 		}
 	}
 	
@@ -31,7 +31,7 @@ public class StringUtil {
 	 * 
 	 */
 	public static boolean isBlank(String str) {
-		return null==str||"".equals(str.trim());
+		return null==str||"".equals(str.trim());					
 	}
 	
 	
@@ -65,14 +65,14 @@ public class StringUtil {
 	 * @return
 	 */
 	public static String getRandomStr(int n) {
-		Random random = new Random();
+		Random random = new Random();				//获取随机数字
 		
-		StringBuilder sb = new StringBuilder();		//StringBuilder执行效率高，因为方法是在一个线程内执行，不会出现线程安全问题，因此选择执行效率高的StringBuilder
-		for (int i = 0; i < n; i++) {
-			char  randomChar = (char) ('a'+random.nextInt(26));
-			sb.append(randomChar);
+		StringBuilder sb = new StringBuilder();		//	StringBuilder执行效率高，因为方法是在一个线程内执行，不会出现线程安全问题，因此选择执行效率高的StringBuilder
+		for (int i = 0; i < n; i++) {																	//循环n次，获取n次随机字母
+			char  randomChar = (char) ('a'+random.nextInt(26));			//随机数定义范围，用ASCII码来表示字母
+			sb.append(randomChar);																//把字母添加到StringBuilder中
 		}
-		return sb.toString();
+		return sb.toString();											//返回StringBuilder中的值
 	}
 	
 	/**
@@ -84,8 +84,8 @@ public class StringUtil {
 		Random random = new Random();
 		StringBuilder sb = new StringBuilder();		//StringBuilder执行效率高，因为方法是在一个线程内执行，不会出现线程安全问题，因此选择执行效率高的StringBuilder
 		for (int i = 0; i < n; i++) {
-			char  randomChar = (char)charArray[(random.nextInt(36))];
-			sb.append(randomChar);
+			char  randomChar = (char)charArray[(random.nextInt(36))];						//随机获取到的数字作为数组的下标，把数组中的字符取出来存放在StringBuilder中
+			sb.append(randomChar);																			
 		}
 		return sb.toString();
 	}
