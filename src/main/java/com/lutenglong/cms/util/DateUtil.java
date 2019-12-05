@@ -15,7 +15,7 @@ import java.util.Date;
  */
 public class DateUtil {
 		
-	static final int millSecondsPerDay = 3600*24;
+	static final int millSecondsPerDay = 3600*24*1000;
 	
 	
 	
@@ -34,21 +34,21 @@ public class DateUtil {
 		Calendar instance = Calendar.getInstance();
 		
 		//计算出生的年月日
-		instance.setTime(birthday);
-		int year = instance.get(Calendar.YEAR);
-		int month = instance.get(Calendar.MONTH);
-		int day = instance.get(Calendar.DATE);
+		instance.setTime(birthday);				//获取出生的年月日
+		int year = instance.get(Calendar.YEAR);			
+		int month = instance.get(Calendar.MONTH);	
+		int day = instance.get(Calendar.DATE);				
 		
 		
 		instance.setTime(new Date());
-		int currentYear = instance.get(Calendar.YEAR);
+		int currentYear = instance.get(Calendar.YEAR);			//获取当前的年月日
 		int currentMonth = instance.get(Calendar.MONTH);
 		int currentDay = instance.get(Calendar.DATE);
 		
-		int age  = currentYear-year;
-		if(currentMonth<month) {
+		int age  = currentYear-year;								//当前年份减去出生的年份
+		if(currentMonth<month) {							//判断当前月份是否小于出生的月份，如果小于出生月份代表要小一岁
 			age--;
-		}else if(currentMonth==month&&currentDay<day) {
+		}else if(currentMonth==month&&currentDay<day) {		//判断月份相等时，当前的时间是否小于出生的时间
 			age--;
 		}
 		return age;
@@ -57,23 +57,27 @@ public class DateUtil {
 	/**
 	 * 获取剩余多少天
 	 * 
+	 * Get the remaining days
+	 * 
 	 * @param future
-	 * @return
+	 * @return 返回剩余的天数
 	 */
 	public static int getRemainDays(Date future) {
-		return (int) ((future.getTime()-new Date().getTime())/millSecondsPerDay);
+		return (int) ((future.getTime()-new Date().getTime())/millSecondsPerDay);	//获取将来的时间 再获取当前时间 相减 除以一天的秒数
 	}
 
 	/**
 	 * 判断是否为当天
 	 * 
+	 * Determine if it is the same day
+	 * 
 	 * @param date
 	 * @return
 	 */
 	public static boolean isToday(Date date) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String format = simpleDateFormat.format(date);
-		String current = simpleDateFormat.format(new Date());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");				//格式化传来的时间
+		String format = simpleDateFormat.format(date);						
+		String current = simpleDateFormat.format(new Date());													//格式化当前时间
 		
 		return format.equals(current);
 	}
@@ -81,18 +85,34 @@ public class DateUtil {
 	
 	/**
 	 * 获取当月的月初
+	 * 
+	 * Gets the beginning of the month
+	 * 
 	 * @return
 	 */
 	public static Date  getBeginOfMonth() {
 		//获取日历的实例
-		Calendar instance = Calendar.getInstance();
+		Calendar instance = Calendar.getInstance();	
+		
+		//设置当前时间
 		instance.setTime(new Date());
+		
+		//初始化秒
 		instance.set(Calendar.SECOND, 0);
+		
+		//初始化分钟
 		instance.set(Calendar.MINUTE, 0);
+		
+		//初始化小时
 		instance.set(Calendar.HOUR, 0);
+		
+		//初始化天
 		instance.set(Calendar.DATE, 1);
+		
+		//初始化上午下午
 		instance.set(Calendar.AM_PM,Calendar.AM);
 		
+		//返回当前月初
 		return instance.getTime();
 	}
 }
