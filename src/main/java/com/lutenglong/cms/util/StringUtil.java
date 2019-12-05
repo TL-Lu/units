@@ -12,6 +12,9 @@ import java.util.regex.Pattern;
 public class StringUtil {
 	/**
 	 * 获取所有的大写字符以及数字，放到数组里
+	 * 
+	 * Get all the uppercase characters and Numbers in the array
+	 * 
 	 */
 	static char charArray[] = new char[36];
 	static {
@@ -26,6 +29,9 @@ public class StringUtil {
 	
 	/**
 	 * 判断字符串是否为空
+	 * 
+	 * Determines if the string is empty
+	 * 
 	 * @author Lu'TL
 	 * @return
 	 * 
@@ -38,6 +44,9 @@ public class StringUtil {
 	/**
 	 * 
 	 * 判断是否有值
+	 * 
+	 * Determine if there is a value
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -47,6 +56,9 @@ public class StringUtil {
 	
 	/**
 	 * 判断是否为手机号
+	 * 
+	 * Determine if it is a mobile phone number
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -61,7 +73,15 @@ public class StringUtil {
 	
 	/**
 	 * 随机字符串不包含数字
+	 * 
+	 * Random strings don't contain number
+	 * 
+	 * 
 	 * 使用StringBuilder效率比String和StringBuffer要高，函数只在一个线程中执行，不会触发线程安全问题，所以本次使用StringBuilder是最合适的
+	 * 
+	 * StringBuilder is more efficient than String and StringBuffer, and the function only 
+	 * executes in one thread without triggering thread-safety issues, so StringBuilder is best used this time
+	 * 
 	 * @param n
 	 * @return	
 	 */
@@ -78,6 +98,8 @@ public class StringUtil {
 	
 	/**
 	 * 随机字符串包含数字
+	 * Random strings contain number
+	 * 
 	 * @param n
 	 * @return
 	 */
