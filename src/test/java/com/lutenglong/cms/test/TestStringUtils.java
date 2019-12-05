@@ -49,4 +49,10 @@ public class TestStringUtils {
 		System.out.println("randomStr is"+randomStrAndNum);
 		Assert.assertTrue(randomStrAndNum.length()==15);
 	}
+	
+	@Test
+	public void testRandomJianHan() throws Exception {
+		String randomStr = StringUtil.randomJianHan(2);
+		System.out.println(randomStr);
+	}
 }

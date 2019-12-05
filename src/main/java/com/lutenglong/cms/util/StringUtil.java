@@ -116,30 +116,28 @@ public class StringUtil {
 	
 	
 	
-
-	public static String RandomJianHan(int len) throws Exception {
+	/**
+	 * 
+	 * @param len
+	 * @return	返回随机获取的汉字字符串
+	 * @throws Exception
+	 */
+	public static String randomJianHan(int len) throws Exception {
 		String ret = "";
 		for (int i = 0; i < len; i++) {
-			String str = null;
-			
-			int hightPos, lowPos; // 定义高低位
-			
-			Random random = new Random();
-			
-			hightPos = (176 + Math.abs(random.nextInt(39))); // 获取高位值		176是什么？  Math.abs()在这里有什么作用 ？ 39 是什么？
-			
-			lowPos = (161 + Math.abs(random.nextInt(93))); // 获取低位值
-			
-			byte[] b = new byte[2];
-			
-			b[0] = (new Integer(hightPos).byteValue());
-			
-			b[1] = (new Integer(lowPos).byteValue());
-			
-			str = new String(b, "GBk"); 				//		转成中文
-			
-			ret += str;
+				
+				Random random = new Random();		
+				
+				byte[] b = new byte[2];				
+				
+				b[0] =  (byte) (0xA1+0x10+ random.nextInt(36)); // 获取高位值	
+				
+				b[1] = (byte) (0xA1+ random.nextInt(94)); 	// 获取高位值	
+						
+				String 	str = new String(b, "GBK"); 						//		转成中文
+				
+				ret += str;
 			}
-	return ret;
+				return ret;
 	}
 }
