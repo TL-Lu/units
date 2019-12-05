@@ -61,8 +61,9 @@ public class StringUtil {
 	
 	/**
 	 * 随机字符串不包含数字
+	 * 使用StringBuilder效率比String和StringBuffer要高，函数只在一个线程中执行，不会触发线程安全问题，所以本次使用StringBuilder是最合适的
 	 * @param n
-	 * @return
+	 * @return	
 	 */
 	public static String getRandomStr(int n) {
 		Random random = new Random();				//获取随机数字
@@ -85,7 +86,7 @@ public class StringUtil {
 		StringBuilder sb = new StringBuilder();		//StringBuilder执行效率高，因为方法是在一个线程内执行，不会出现线程安全问题，因此选择执行效率高的StringBuilder
 		for (int i = 0; i < n; i++) {
 			char  randomChar = (char)charArray[(random.nextInt(36))];						//随机获取到的数字作为数组的下标，把数组中的字符取出来存放在StringBuilder中
-			sb.append(randomChar);																			
+			sb.append(randomChar);																						
 		}
 		return sb.toString();
 	}
