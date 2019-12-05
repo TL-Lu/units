@@ -1,5 +1,6 @@
 package com.lutenglong.cms.util;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -111,5 +112,34 @@ public class StringUtil {
 			sb.append(randomChar);																						
 		}
 		return sb.toString();
+	}
+	
+	
+	
+
+	public static String RandomJianHan(int len) throws Exception {
+		String ret = "";
+		for (int i = 0; i < len; i++) {
+			String str = null;
+			
+			int hightPos, lowPos; // 定义高低位
+			
+			Random random = new Random();
+			
+			hightPos = (176 + Math.abs(random.nextInt(39))); // 获取高位值		176是什么？  Math.abs()在这里有什么作用 ？ 39 是什么？
+			
+			lowPos = (161 + Math.abs(random.nextInt(93))); // 获取低位值
+			
+			byte[] b = new byte[2];
+			
+			b[0] = (new Integer(hightPos).byteValue());
+			
+			b[1] = (new Integer(lowPos).byteValue());
+			
+			str = new String(b, "GBk"); 				//		转成中文
+			
+			ret += str;
+			}
+	return ret;
 	}
 }
