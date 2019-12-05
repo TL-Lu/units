@@ -13,7 +13,7 @@ public class StringUtil {
 	/**
 	 * 获取所有的大写字符以及数字，放到数组里
 	 * 
-	 * Get all the uppercase characters and Numbers in the array
+	 * Get all the uppercase characters and Numbers and put them in the array
 	 * 
 	 */
 	static char charArray[] = new char[36];
