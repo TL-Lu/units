@@ -31,4 +31,10 @@ public class TestDateUtil {
 		boolean isToday = DateUtil.isToday(new Date(119,11,5));
 		System.out.println(isToday);
 	}
+	
+	@Test
+	public void getEndOfMonth() {				//测试是否当天
+		Date endOfMonth = DateUtil.getEndOfMonth();
+		System.out.println(endOfMonth);
+	}
 }
