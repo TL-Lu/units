@@ -81,7 +81,7 @@ public class StringUtil {
 	 */
 	
 	public static boolean isMobile(String str) {
-		String regex="^1[35678]\\d{9}$";
+		String regex="^1[3,5,6,7,8]\\d{9}$";
 		Pattern compile = Pattern.compile(regex);
 		Matcher matcher =compile.matcher(str);
 		boolean find = matcher.find();
@@ -155,5 +155,22 @@ public class StringUtil {
 				ret += str;
 			}
 				return ret;
+	}
+	
+	
+	
+	/**
+	 * 
+	 * 判断是否为邮箱
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean isEmail(String str) {
+		String regex="^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$";
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher =compile.matcher(str);
+		boolean find = matcher.find();
+		return find;
 	}
 }

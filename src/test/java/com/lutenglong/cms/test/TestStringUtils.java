@@ -55,4 +55,9 @@ public class TestStringUtils {
 		String randomStr = StringUtil.randomJianHan(2);
 		System.out.println(randomStr);
 	}
+	@Test
+	public void testIsEmail(){
+		boolean email = StringUtil.isEmail("w123@163.com");
+		System.out.println(email);
+	}
 }
