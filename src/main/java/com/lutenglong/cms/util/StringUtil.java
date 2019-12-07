@@ -1,7 +1,5 @@
 package com.lutenglong.cms.util;
 
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
