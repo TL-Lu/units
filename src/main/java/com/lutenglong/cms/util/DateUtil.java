@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import org.junit.runner.RunWith;
+import org.junit.runner.Runner;
+
 /**
  * 
  * 关于日期的工具类
@@ -14,6 +17,7 @@ import java.util.Locale;
  * @author Lu'TL
  *
  */
+
 public class DateUtil {
 		
 	static final int millSecondsPerDay = 3600*24*1000;
