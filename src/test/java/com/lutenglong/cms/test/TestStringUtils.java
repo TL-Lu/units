@@ -60,4 +60,11 @@ public class TestStringUtils {
 		boolean email = StringUtil.isEmail("w123@163.com");
 		System.out.println(email);
 	}
+	
+	
+	@Test
+	public  void testhaveNumber() {
+		boolean haveNumber = StringUtil.haveNumber("a1");
+		System.out.println(haveNumber);
+	}
 }

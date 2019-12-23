@@ -48,23 +48,20 @@ public class TestFileUtil {
 		System.out.println("比较结束");
 	}
 	
-	@Test
-	public void testReadLines() throws IOException {
-		
-		List<String> lines = FileUtil.readByLines("D:\\project\\07b - 副本\\"
-				+ "src\\main\\java\\test\\com\\zhu"
-				+ "zg\\unit15\\TestJoinTest.java");
-		
-		lines.forEach(x->{System.out.println(" x is " + x);});
-	}
+	/*
+	 * @Test public void testReadLines() throws IOException {
+	 * 
+	 * List<String> lines = FileUtil.readByLines("D:\\project\\07b - 副本\\" +
+	 * "src\\main\\java\\test\\com\\zhu" + "zg\\unit15\\TestJoinTest.java");
+	 * 
+	 * lines.forEach(x->{System.out.println(" x is " + x);}); }
+	 */
 	
 	
-	@Test
-	public void testCopy() throws IOException {
-		String src="D:\\project\\07b\\07b.zip";
-		String dst="D:\\project\\07b\\07b2.zip";
-		FileUtil.copy(src,dst );
-	} 
+	/*
+	 * @Test public void testCopy() throws IOException { String
+	 * src="D:\\project\\07b\\07b.zip"; String dst="D:\\project\\07b\\07b2.zip"; }
+	 */
 	
 	
 	
