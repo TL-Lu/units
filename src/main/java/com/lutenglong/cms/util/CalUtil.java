@@ -11,7 +11,6 @@ public class CalUtil {
 	 * @return
 	 */
 	public static double calBylw(double startl,double startw,double endl,double endw) {
-		System.out.println("1------------------------");
 		return getDistance(startl,startw,endl,endw);
 	}
 	/**
