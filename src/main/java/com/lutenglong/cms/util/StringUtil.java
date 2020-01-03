@@ -1,5 +1,8 @@
 package com.lutenglong.cms.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -211,4 +214,96 @@ public class StringUtil {
                 + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";  
         return  str.matches(regex);	
 	}
+	
+	
+	/**
+	 * 根据经纬度计算环线
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public static int cal(int x,int y) {
+
+		long round = Math.round(Math.sqrt(Math.pow(x-39, 2))+Math.pow(y-116, 2));
+		
+		if(round>=0&&round<=15) {
+			return 2;
+		}else if(round>15&&round<=30){
+			return 3;
+		}else if(round>30&&round<=40){
+			return 4;
+		}else if(round>40&&round<=60){
+			return 5;
+		}else if(round>60&&round<=70){
+			return 6;
+		}else {
+			return 0;
+		}
+	}
+	
+	/**
+	 * 计算距离
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public static long position (int x,int y) {
+		return  Math.round(Math.sqrt(Math.pow(x-39, 2))+Math.pow(y-116, 2));
+	}
+	
+	public static String  isPassyn(int week,String carId,long cal,String type) {
+		String substring = carId.substring(0,1);
+		String substring2 = carId.substring(6);
+		if(type.equals("A")&&cal<15) {
+			return carId+"进入2环";
+		}
+		if(type.equals("B")&&cal<40) {
+			return  carId+"进入4环";
+		}
+		if(type.equals("C")&&cal<60&&!substring.equals("京")) {
+			return  "外地车不能进入5环";
+		}
+		if(type.equals("C")&&substring.equals("京")) {
+			if(week%2==0) {
+					if(Integer.valueOf(substring2)%2!=0) {
+						return "限号！";
+					}
+			}else {
+				if(Integer.valueOf(substring2)%2==0) {
+					return "限号！";
+				}
+			}
+		}
+		return "未违规";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * 返回周几
+	 * @param date
+	 * @return
+	 * @throws ParseException 
+	 */
+	public static int week(String date)  {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date parse;
+		try {
+			parse = simpleDateFormat.parse(date);
+			int date2 = parse.getDate();
+			return date2-15;
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	
+	
+	
 }
